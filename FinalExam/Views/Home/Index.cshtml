@@ -2,7 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<Quote> 
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the quotes database!</h1>
 </div>
+
+<table class="table table-sm table-striped table-bordered">
+
+    <thead class="bold">
+        <tr>
+            <th class="text-center">Quote</th>
+            <th class="text-center">Author</th>
+            <th class="text-center">Details</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var q in Model)
+        {
+            <tr>
+                <td class="text-center">@q.Words</td>
+                <td class="text-center">@q.Author</td>
+                <td class="text-center"><a asp-controller="Home" class="btn btn-info btn-sm d-flex justify-content-center" asp-action="ViewQuoteDetails" asp-route-quoteid="@q.QuoteID">Details</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>

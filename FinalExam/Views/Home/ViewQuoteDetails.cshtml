@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Quote Details";
+}
+
+@model FinalExam.Models.Quote
+
+<table class="table table-sm table-bordered table-striped">
+
+    <tbody>
+        <tr><th>Quote ID:</th><td>@Model.QuoteID</td></tr>
+        <tr><th>Quote:</th><td>@Model.Words</td></tr>
+        <tr><th>Author:</th><td>@Model.Author</td></tr>
+        <tr><th>Date:</th><td>@Model.Date</td></tr>
+        <tr><th>Subject:</th><td>@Model.Subject</td></tr>
+        <tr><th>Citation:</th><td>@Model.Citation</td></tr>
+    </tbody>
+
+
+</table>
+
+<a asp-controller="Home" class="btn btn-info btn-sm d-flex justify-content-center" asp-action="EditQuote" asp-route-quoteid="@Model.QuoteID">Edit</a>
+<a asp-controller="Home" class="btn btn-info btn-sm d-flex justify-content-center" asp-action="Index">Back</a>
